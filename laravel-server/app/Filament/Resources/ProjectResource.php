@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ProjectResource\Pages;
+use App\Filament\Resources\ProjectResource\RelationManagers\RecommendedCandidatesRelationManager;
 use App\Models\Project;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Form;
@@ -85,6 +86,13 @@ class ProjectResource extends Resource
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            RecommendedCandidatesRelationManager::class
+        ];
     }
 
     public static function getPages(): array
